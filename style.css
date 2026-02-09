@@ -1,0 +1,375 @@
+:root {
+    --primary-color: #ff4d6d;
+    --secondary-color: #ff8fa3;
+    --bg-gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --text-color: #590d22;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-gradient);
+    height: 100vh;
+    overflow: hidden;
+    /* Prevent scrolling usually */
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: var(--text-color);
+}
+
+/* Floating Hearts Background */
+.hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    bottom: -10vh;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.6);
+    animation: floatUp 10s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Glassmorphism Card */
+.container {
+    z-index: 10;
+    position: relative;
+    width: 90%;
+    max-width: 450px;
+}
+
+.card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 2px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    transition: transform 0.3s ease, opacity 0.5s ease;
+}
+
+.card:hover {
+    /* Desktop hover effect */
+    transform: translateY(-5px);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Images */
+.img-container {
+    margin-bottom: 1.5rem;
+}
+
+.hero-img {
+    width: 180px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: floatImg 3s ease-in-out infinite;
+}
+
+@keyframes floatImg {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Text */
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.2rem;
+    color: #d0006f;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.sub-text {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.question {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #a4133c;
+    margin-bottom: 2rem;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 1rem;
+    position: relative;
+    /* For button movement context if needed */
+}
+
+.btn {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+}
+
+.yes-btn {
+    background: linear-gradient(45deg, #ff00cc, #333399);
+    /* Placeholder gradient, lets make it nicer */
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    background: linear-gradient(to right, #ff512f, #dd2476);
+    color: white;
+    background-size: 200% auto;
+    animation: pulse 2s infinite;
+}
+
+.yes-btn:hover {
+    transform: scale(1.1);
+    background-position: right center;
+}
+
+.no-btn {
+    background: #fff;
+    color: #333;
+    border: 2px solid #ff4d6d;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(221, 36, 118, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(221, 36, 118, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(221, 36, 118, 0);
+    }
+}
+
+/* Popup Styles */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.popup-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 300px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    animation: shake 0.5s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+.popup-content .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.popup-content h2 {
+    font-family: 'Pacifico', cursive;
+    color: #d0006f;
+    margin-bottom: 10px;
+}
+
+.popup-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+}
+
+.close-btn {
+    background: var(--primary-color);
+    color: white;
+}
+
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Happy Page Specifics */
+.happy-text {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    80% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.typing-container {
+    font-size: 1.5rem;
+    font-family: 'Pacifico', cursive;
+    color: #a4133c;
+    min-height: 2.5rem;
+    /* prevent layout shift */
+    margin-top: 1rem;
+}
+
+.cursor {
+    animation: blink 1s infinite;
+}
+
+/* Love Counter */
+.timer-container {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+}
+
+.timer-container p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+#timer {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #d0006f;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Confetti Canvas */
+#confetti-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+    .card {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-img {
+        width: 150px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
