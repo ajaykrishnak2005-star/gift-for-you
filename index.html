@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Valentine ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Floating Background Hearts -->
+    <div class="hearts-container"></div>
+
+    <!-- Main Card Container -->
+    <div class="container">
+
+        <!-- PAGE 1: PROPOSAL -->
+        <div id="proposal-page" class="card">
+            <div class="img-container">
+                <!-- Cute Bear asking -->
+                <img src="https://media1.tenor.com/m/9euVF1XwE_YAAAAC/bunny-bunnies.gif" alt="Cute Bunny"
+                    class="hero-img">
+            </div>
+
+            <h1 class="main-text">Hey Mittu ❤️</h1>
+            <p class="sub-text">Nnan ath soliyaganam pandaradangan ninnak odukkatha bangiya.</p>
+            <p class="question">So will you be my Valentine? 💘</p>
+
+            <div class="buttons">
+                <button id="yes-btn" class="btn yes-btn">YES! 💘</button>
+                <button id="no-btn" class="btn no-btn">NO 💔</button>
+            </div>
+        </div>
+
+        <!-- PAGE 1.5: MARRIAGE PROPOSAL (Hidden by default) -->
+        <div id="marriage-page" class="card hidden">
+            <div class="img-container">
+                <!-- Cute Bear asking for marriage -->
+                <img src="https://media.tenor.com/2j1L3tMh5kUAAAAi/bear-love.gif" alt="Marry Me Bear"
+                    class="hero-img">
+            </div>
+
+            <h1 class="main-text">One more thing... 💍</h1>
+            <p class="question">So will you marry mee? 💍</p>
+
+            <div class="buttons">
+                <button id="marriage-yes-btn" class="btn yes-btn">YES! 💍</button>
+                <button id="marriage-no-btn" class="btn no-btn">NO 😢</button>
+            </div>
+        </div>
+
+        <!-- PAGE 2: HAPPY PAGE (Hidden by default) -->
+        <div id="happy-page" class="card hidden">
+            <div class="img-container">
+                <!-- Happy Couple Hugging -->
+                <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" alt="Happy Couple"
+                    class="hero-img">
+            </div>
+
+            <h1 class="happy-text">Yayyyyy 🥹❤️</h1>
+            <p class="sub-text">Now officially my Valentine 💍💕</p>
+
+            <div class="typing-container">
+                <span id="typing-text"></span>
+            </div>
+
+            <!-- Love Counter -->
+            <div class="timer-container">
+                <p>Time since we met:</p>
+                <div id="timer">00d 00h 00m 00s</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ERROR POPUP -->
+    <div id="error-popup" class="popup hidden">
+        <div class="popup-content">
+            <div class="icon">⚠️</div>
+            <h2>Error 404: Brain Not Found 😜</h2>
+            <p>Entha mole anuu ni enthina no kodukkune?<br>Ni yes kodukkuuu appo okke avum 💕</p>
+            <button id="close-popup" class="btn close-btn">Okay da 👌</button>
+        </div>
+    </div>
+
+    <!-- Fireworks Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
